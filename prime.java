@@ -1,5 +1,6 @@
 class prime {
     public static boolean primeCheck(int n) {
+        if (n < 2) return false;
         for (int i = 2; i * i <= n; i++) {
             if (n % i == 0)
                 return false;
@@ -8,6 +9,7 @@ class prime {
     }
 
     public static void main(String[] args) {
-        System.out.println("Is " + 23 + " prime : " + primeCheck(36));
+        
+        System.out.println("Is " + 23 + " prime : " + primeCheck(23));
     }
 }

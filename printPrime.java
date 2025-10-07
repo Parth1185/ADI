@@ -2,7 +2,7 @@ import java.util.*;
 
 public class printPrime {
 
-    public static boolean primeCheck(int n) {
+    public static boolean isPrime(int n) {
         for (int i = 2; i * i <= n; i++) {
             if (n % i == 0)
                 return false;
@@ -13,7 +13,7 @@ public class printPrime {
     public static List<Integer> fun1(int n) {
         List<Integer> primes = new ArrayList<>();
         for (int i = 1; i <= n; i++) {
-            if (primeCheck(i)) primes.add(i);
+            if (isPrime(i)) primes.add(i);
         }
         return primes;
     }
