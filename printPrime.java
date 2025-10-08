@@ -24,6 +24,8 @@
 //     }
 // }
 
+//16 element in vector by default and increase 12 elements  while in arraylist 10 by default and increase 5 elements
+
 import java.util.*;
 
 public class printPrime {
@@ -39,7 +41,9 @@ public class printPrime {
 
     public static List<Integer> fun1(int n) {
         List<Integer> primes = new ArrayList<>();
-
+        for (int i = 1; i <= n; i++) {
+            if (isPrime(i)) primes.add(i);
+        }
         return primes;
     }
 
