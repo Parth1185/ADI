@@ -24,6 +24,12 @@ public class BST {
         System.out.print(root.val + " ");
         print(root.right);
     }
+
+    public static TreeNode findMin(TreeNode root){
+        while(root.left!=null) root=root.left;
+        return root;
+    }
+
     public static TreeNode remove(int ele, TreeNode root){
         if(root==null) return null;
         else if(ele<root.val) root.left=remove(ele,root.left);
@@ -33,13 +39,20 @@ public class BST {
             if(root.left==null) return root.right;
             else if(root.right==null) return root.left;
 
-            if(root.left==null && root.right==null) root=null;  //NO CHILD            
+            //NO CHILD            
+            if(root.left==null && root.right==null) root=null;  
         
             //1 CHILD
             else if(root.left==null) root=root.right;
             else if(root.right==null) root=root.left;            
 
             //2 CHILDREN
+            else{
+                TreeNode temp = findMin(root.right);
+                root.val=temp.val;
+                root.right=remove(temp.val,root.right);     
+            }
+
         }
         return root;
     }
@@ -50,6 +63,7 @@ public class BST {
         for (int val : arr) root = insert(root, val);
         print(root);
         root = remove(8,root);
+        System.out.println();
         print(root);
     }
 }
